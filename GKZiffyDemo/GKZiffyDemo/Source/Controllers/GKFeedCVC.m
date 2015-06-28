@@ -10,7 +10,11 @@
 #import "GKAPIManager.h"
 #import "GKFeedDataSource.h"
 #import "GKFeedFlowLayout.h"
-@interface GKFeedCVC()<UICollectionViewDelegateFlowLayout>
+#import "SVProgressHUD.h"
+
+@interface GKFeedCVC()<UICollectionViewDelegateFlowLayout>{
+    NSUInteger pageOffset;
+}
 @property (strong, nonatomic)NSDictionary *feedData;
 @property (strong, nonatomic)GKFeedDataSource *dataSource;
 @end
@@ -20,17 +24,12 @@
 
 -(void)viewDidLoad{
     
-    GKFeedCVC *__weak _weakSelf = self;
+
     _dataSource = [[GKFeedDataSource alloc]initWithCollectionView:self];
+
     self.collectionView.dataSource = self.dataSource;
+    [self fetchDataAtPage:pageOffset];
     
-    [GKAPIManager getlocalDataWithCallback:^(BOOL success, id result) {
-        if (success) {
-            _weakSelf.feedData =[NSDictionary dictionaryWithDictionary:result];
-            
-            [_weakSelf.dataSource reloadWithData:_weakSelf.feedData[@"results"]];
-        }
-    }];
     
 }
 
@@ -38,34 +37,67 @@
     [super viewWillAppear:animated];
 }
 
-#define maxColumns  2
-#define maxWidth 300.f
-
 -(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
         [self.collectionView.collectionViewLayout invalidateLayout];
 }
-#pragma mark - UICollectionViewDelegateFlowLayout Methods
 
-//-(CGSize)collectionView:(UICollectionView *)collectionView
-//                 layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    GKFeedFlowLayout * layout = (GKFeedFlowLayout *)self.collectionView.collectionViewLayout;
-//    CGFloat cWidth = self.collectionView.frame.size.width;
-//    NSUInteger columnCount = MIN(floor(cWidth/maxWidth), maxColumns);
-//    CGFloat padding = ((columnCount + 1) * layout.sectionInset.left);
-//    CGFloat cmaxWidth = cWidth - padding;
-//    CGFloat finalWidth = floorf((cWidth - padding)/columnCount) ;
-//    
-//    CGFloat calcWidth = MIN(cmaxWidth,finalWidth) ;
-//    
-////    [layout setItemSize:CGSizeMake(calcWidth, 114390/calcWidth)];
-//    
-//
-//    return CGSizeMake(calcWidth, 320);
-//}
-//
-#pragma mark - collectionViewDelegate Methods
+-(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row>= self.dataSource.arrFeed.count-2) {
+        [self fetchDataAtPage:pageOffset];
+    }
+    
+}
 
 
+#pragma mark - Data
+#define kQueryString @"Hair Spa"
+#define kCityID @"4"
+#define kVertical @"salons-spas"
 
+//TODO:-  Remove the code to get local data and include the call to methdo that gives data from webservice
+-(void)fetchDataAtPage:(NSInteger)page{
+    if (page >4) {
+        return;
+    }
+    GKFeedCVC *__weak _weakSelf = self;
+    [GKAPIManager getlocalDataAtPage:page
+                        withCallback:^(BOOL success, id result) {
+        if (success) {
+            pageOffset++;
+            [_weakSelf.dataSource appendData:result[@"results"] reload:(page==0)];
+        }
+    }];
+
+}
+
+-(void)Actual_fetchDataAtPage:(NSInteger)page{
+    [self showHUD];
+    [GKAPIManager findAllBusinessesWithQuery:kQueryString
+                                  fromOffset:page
+                                      cityID:kCityID vertical:kVertical withCallback:^(BOOL success, id result) {
+                                          [self hideHUD];
+                                          pageOffset++;
+                                          [self.dataSource appendData:result[@"results"] reload:NO];
+                                      } onFailure:^(NSString *error_code, NSString *message) {
+                                                                                    [self hideHUD];
+                                          NSLog(@"%@", message);
+                                         // [SVProgressHUD showErrorWithStatus:message];
+                                      }];
+}
+
+#pragma mark - TEMP
+
+-(void)showHUD{
+    UIView *v = [[UIView alloc]initWithFrame:self.view.bounds];
+    v.alpha = 0.5;
+    v.tag = 1025;
+    [v setBackgroundColor:[UIColor colorWithRed:0.110 green:0.671 blue:0.663 alpha:1.000]];
+    [self.view addSubview:v];
+
+    v= nil;
+}
+
+-(void)hideHUD{
+    [[self.view viewWithTag:1025] removeFromSuperview];
+}
 @end

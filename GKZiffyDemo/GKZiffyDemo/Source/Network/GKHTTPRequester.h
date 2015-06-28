@@ -21,7 +21,7 @@ typedef void (^GKSuccessCallback)  (BOOL success, id result);
 typedef void (^GKFailureCallback)  (NSString *error_code, NSString *message);
 
 
-@interface GKHTTPRequester : NSObject
+@interface GKHTTPRequester : NSObject <NSURLSessionDelegate>
 
 @property (nonatomic, assign) GKHTTPMethod method;
 @property (nonatomic, strong) NSURLSessionDataTask *dataTask;
@@ -31,5 +31,4 @@ typedef void (^GKFailureCallback)  (NSString *error_code, NSString *message);
          callback:(GKSuccessCallback)callback;
 
 -(void)cancelAllServices;
-
 @end

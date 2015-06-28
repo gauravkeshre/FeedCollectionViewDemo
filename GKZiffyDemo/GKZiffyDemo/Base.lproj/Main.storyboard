@@ -36,10 +36,10 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="JWc-Ee-hGE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.87843137979507446" green="0.88235294818878174" blue="0.89019608497619629" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NNZ-mw-S8m" customClass="GKFeedFlowLayout">
                             <size key="itemSize" width="318" height="276"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="74"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
@@ -180,7 +180,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3gf-sT-4QV" userLabel="reference">
                                             <rect key="frame" x="0.0" y="0.0" width="310" height="276"/>
                                             <subviews>
-                                                <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="300" verticalCompressionResistancePriority="200" image="img01" translatesAutoresizingMaskIntoConstraints="NO" id="Kad-na-v1J">
+                                                <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="300" verticalCompressionResistancePriority="200" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="Kad-na-v1J">
                                                     <rect key="frame" x="0.0" y="0.0" width="310" height="179"/>
                                                     <color key="backgroundColor" red="0.32645056420000002" green="0.90588235289999997" blue="0.17577164679999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -194,7 +194,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Shop No., 10, Ozone, Rustomjee Project, Guregaon Mulund Link Road, Next to MTNL, Malad West, Mumbai" translatesAutoresizingMaskIntoConstraints="NO" id="oav-Gt-HE8">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Address" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oav-Gt-HE8">
                                                     <rect key="frame" x="0.0" y="202" width="207" height="69"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -227,9 +227,16 @@
                                                         <constraint firstAttribute="height" constant="21" id="cBR-Wk-T2P"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.10980392160000001" green="0.6705882353" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAn-wN-iMx" customClass="DYRateView">
+                                                    <rect key="frame" x="8" y="36" width="200" height="30"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="7T8-mA-bnb"/>
+                                                        <constraint firstAttribute="width" constant="200" id="DiY-pS-lX9"/>
+                                                    </constraints>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="giffy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5t-L0-HNJ">
                                                     <rect key="frame" x="7" y="5" width="297" height="25"/>
                                                     <constraints>
@@ -239,19 +246,17 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAn-wN-iMx" customClass="DYRateView">
-                                                    <rect key="frame" x="8" y="36" width="200" height="32"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="32" id="7T8-mA-bnb"/>
-                                                        <constraint firstAttribute="width" constant="200" id="DiY-pS-lX9"/>
-                                                    </constraints>
-                                                </view>
                                                 <view alpha="0.39999999999999963" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0gh-IN-9zy" userLabel="Title_BG">
                                                     <rect key="frame" x="0.0" y="109" width="310" height="32"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vikas Marwah's Salon and Academy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="m5U-Fw-rSs">
-                                                    <rect key="frame" x="8" y="109" width="294" height="32"/>
+                                                    <rect key="frame" x="8" y="107" width="294" height="32"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="3UE-ai-Sao"/>
@@ -322,7 +327,68 @@
                                     <outlet property="txtAddress" destination="oav-Gt-HE8" id="boR-QO-IJg"/>
                                 </connections>
                             </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchHeader" id="qBZ-g5-1qS">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <userGuides>
+                                    <userLayoutGuide affinity="minY"/>
+                                </userGuides>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="310" height="54"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="xGt-xV-iMh">
+                                            <rect key="frame" x="5" y="5" width="300" height="44"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                                    <size key="value" width="1" height="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                                    <integer key="value" value="12"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </searchBar>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="xGt-xV-iMh" firstAttribute="top" secondItem="qBZ-g5-1qS" secondAttribute="top" constant="5" id="cJL-Cd-zQz"/>
+                                    <constraint firstAttribute="trailing" secondItem="xGt-xV-iMh" secondAttribute="trailing" constant="5" id="ork-CA-63k"/>
+                                    <constraint firstItem="xGt-xV-iMh" firstAttribute="leading" secondItem="qBZ-g5-1qS" secondAttribute="leading" constant="5" id="uId-8s-ivO"/>
+                                </constraints>
+                                <size key="customSize" width="310" height="54"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="self.layer.borderColor">
+                                        <color key="value" red="0.65098248110000001" green="0.0" blue="0.066138317880000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="self.layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchHeaderReusable" id="OFV-l9-0nd">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <searchBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMZ-fA-Cpa">
+                                    <rect key="frame" x="10" y="20" width="580" height="44"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <rect key="contentStretch" x="0.29999999999999999" y="0.0" width="0.29999999999999966" height="1"/>
+                                    <color key="barTintColor" red="0.87843137979507446" green="0.88235294818878174" blue="0.89019608497619629" alpha="1" colorSpace="calibratedRGB"/>
+                                    <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="RMZ-fA-Cpa" secondAttribute="trailing" constant="10" id="fIf-wO-U55"/>
+                                <constraint firstItem="RMZ-fA-Cpa" firstAttribute="top" secondItem="OFV-l9-0nd" secondAttribute="top" constant="20" id="t5E-ty-GKG"/>
+                                <constraint firstItem="RMZ-fA-Cpa" firstAttribute="leading" secondItem="OFV-l9-0nd" secondAttribute="leading" constant="10" id="vOJ-rk-Qqs"/>
+                                <constraint firstAttribute="centerY" secondItem="RMZ-fA-Cpa" secondAttribute="centerY" constant="-5" id="yx0-fG-Daq"/>
+                            </constraints>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="x8w-NH-gZw" id="lQ5-9Y-9n9"/>
                             <outlet property="delegate" destination="x8w-NH-gZw" id="y3A-dI-dtU"/>
@@ -483,6 +549,7 @@
     <resources>
         <image name=" ziffy_02" width="896" height="1508"/>
         <image name="booking" width="31" height="31"/>
+        <image name="default" width="1400" height="800"/>
         <image name="home" width="29" height="24"/>
         <image name="img01" width="1104" height="768"/>
         <image name="offer" width="29" height="29"/>

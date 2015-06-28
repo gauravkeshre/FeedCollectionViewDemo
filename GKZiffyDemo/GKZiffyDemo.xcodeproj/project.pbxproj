@@ -21,8 +21,14 @@
 		E208A9A71B3FCE430050ACCA /* GKFeedCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E208A9A61B3FCE430050ACCA /* GKFeedCVC.m */; };
 		E208A9AA1B3FCF140050ACCA /* GKFeedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E208A9A91B3FCF140050ACCA /* GKFeedDataSource.m */; };
 		E208A9AD1B3FCFFD0050ACCA /* GKFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E208A9AC1B3FCFFD0050ACCA /* GKFeedCell.m */; };
-		E208A9B01B3FD72A0050ACCA /* sample_data_source.json in Resources */ = {isa = PBXBuildFile; fileRef = E208A9AF1B3FD72A0050ACCA /* sample_data_source.json */; };
+		E208A9B01B3FD72A0050ACCA /* sample_data_source_page0.json in Resources */ = {isa = PBXBuildFile; fileRef = E208A9AF1B3FD72A0050ACCA /* sample_data_source_page0.json */; };
 		E208A9B51B4038A30050ACCA /* DYRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = E208A9B41B4038A30050ACCA /* DYRateView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E26D37151B406CA6008878BB /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E26D37121B406CA6008878BB /* SVProgressHUD.bundle */; };
+		E26D37161B406CA6008878BB /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E26D37141B406CA6008878BB /* SVProgressHUD.m */; };
+		E26D37191B408459008878BB /* sample_data_source_page1.json in Resources */ = {isa = PBXBuildFile; fileRef = E26D37171B408459008878BB /* sample_data_source_page1.json */; };
+		E26D371A1B408459008878BB /* sample_data_source_page2.json in Resources */ = {isa = PBXBuildFile; fileRef = E26D37181B408459008878BB /* sample_data_source_page2.json */; };
+		E26D371D1B4087ED008878BB /* UIImageView+LazyLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = E26D371C1B4087ED008878BB /* UIImageView+LazyLoading.m */; };
+		E26D37251B40906D008878BB /* NSString+Highlights.m in Sources */ = {isa = PBXBuildFile; fileRef = E26D37241B40906D008878BB /* NSString+Highlights.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,14 +65,24 @@
 		E208A9A21B3F0CBF0050ACCA /* NSDictionary+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Validation.m"; path = "GKZiffyDemo/Source/Categories/NSDictionary+Validation.m"; sourceTree = SOURCE_ROOT; };
 		E208A9A51B3FCE430050ACCA /* GKFeedCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKFeedCVC.h; path = Source/Controllers/GKFeedCVC.h; sourceTree = "<group>"; };
 		E208A9A61B3FCE430050ACCA /* GKFeedCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKFeedCVC.m; path = Source/Controllers/GKFeedCVC.m; sourceTree = "<group>"; };
-		E208A9A81B3FCF140050ACCA /* GKFeedDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKFeedDataSource.h; path = Source/Controllers/GKFeedDataSource.h; sourceTree = "<group>"; };
-		E208A9A91B3FCF140050ACCA /* GKFeedDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKFeedDataSource.m; path = Source/Controllers/GKFeedDataSource.m; sourceTree = "<group>"; };
-		E208A9AB1B3FCFFD0050ACCA /* GKFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKFeedCell.h; path = Source/Controllers/GKFeedCell.h; sourceTree = "<group>"; };
-		E208A9AC1B3FCFFD0050ACCA /* GKFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKFeedCell.m; path = Source/Controllers/GKFeedCell.m; sourceTree = "<group>"; };
+		E208A9A81B3FCF140050ACCA /* GKFeedDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKFeedDataSource.h; path = ../Controllers/GKFeedDataSource.h; sourceTree = "<group>"; };
+		E208A9A91B3FCF140050ACCA /* GKFeedDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKFeedDataSource.m; path = ../Controllers/GKFeedDataSource.m; sourceTree = "<group>"; };
+		E208A9AB1B3FCFFD0050ACCA /* GKFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKFeedCell.h; path = ../Controllers/GKFeedCell.h; sourceTree = "<group>"; };
+		E208A9AC1B3FCFFD0050ACCA /* GKFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKFeedCell.m; path = ../Controllers/GKFeedCell.m; sourceTree = "<group>"; };
 		E208A9AE1B3FD01F0050ACCA /* GKDataReceiverProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDataReceiverProtocol.h; sourceTree = "<group>"; };
-		E208A9AF1B3FD72A0050ACCA /* sample_data_source.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample_data_source.json; sourceTree = "<group>"; };
+		E208A9AF1B3FD72A0050ACCA /* sample_data_source_page0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample_data_source_page0.json; sourceTree = "<group>"; };
 		E208A9B31B4038A30050ACCA /* DYRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYRateView.h; sourceTree = "<group>"; };
 		E208A9B41B4038A30050ACCA /* DYRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYRateView.m; sourceTree = "<group>"; };
+		E26D37101B4064E9008878BB /* APIConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APIConstants.h; path = Source/Network/APIConstants.h; sourceTree = "<group>"; };
+		E26D37121B406CA6008878BB /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		E26D37131B406CA6008878BB /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		E26D37141B406CA6008878BB /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		E26D37171B408459008878BB /* sample_data_source_page1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sample_data_source_page1.json; path = ../../../../sample_data_source_page1.json; sourceTree = "<group>"; };
+		E26D37181B408459008878BB /* sample_data_source_page2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sample_data_source_page2.json; path = ../../../../sample_data_source_page2.json; sourceTree = "<group>"; };
+		E26D371B1B4087ED008878BB /* UIImageView+LazyLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+LazyLoading.h"; path = "GKZiffyDemo/Source/Network/UIImageView+LazyLoading.h"; sourceTree = SOURCE_ROOT; };
+		E26D371C1B4087ED008878BB /* UIImageView+LazyLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+LazyLoading.m"; path = "GKZiffyDemo/Source/Network/UIImageView+LazyLoading.m"; sourceTree = SOURCE_ROOT; };
+		E26D37231B40906D008878BB /* NSString+Highlights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Highlights.h"; path = "GKZiffyDemo/Source/Network/NSString+Highlights.h"; sourceTree = SOURCE_ROOT; };
+		E26D37241B40906D008878BB /* NSString+Highlights.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Highlights.m"; path = "GKZiffyDemo/Source/Network/NSString+Highlights.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +124,10 @@
 		E208A9581B3DB82D0050ACCA /* GKZiffyDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E208A9821B3DB8B60050ACCA /* App Delegate */,
+				E208A9881B3DB8B60050ACCA /* Models */,
 				E208A98B1B3DB8B60050ACCA /* Views */,
 				E208A9A41B3FCE1F0050ACCA /* Controllers */,
-				E208A9881B3DB8B60050ACCA /* Models */,
-				E208A9821B3DB8B60050ACCA /* App Delegate */,
 				E208A98A1B3DB8B60050ACCA /* Protocols */,
 				E208A9851B3DB8B60050ACCA /* Categories */,
 				E208A98D1B3DB8D60050ACCA /* Resources */,
@@ -168,6 +184,10 @@
 				E208A9971B3DE2D60050ACCA /* UIColor+AppTheme.m */,
 				E208A9A11B3F0CBF0050ACCA /* NSDictionary+Validation.h */,
 				E208A9A21B3F0CBF0050ACCA /* NSDictionary+Validation.m */,
+				E26D371B1B4087ED008878BB /* UIImageView+LazyLoading.h */,
+				E26D371C1B4087ED008878BB /* UIImageView+LazyLoading.m */,
+				E26D37231B40906D008878BB /* NSString+Highlights.h */,
+				E26D37241B40906D008878BB /* NSString+Highlights.m */,
 			);
 			name = Categories;
 			path = Source/Extensions;
@@ -185,6 +205,8 @@
 		E208A9881B3DB8B60050ACCA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E208A9A81B3FCF140050ACCA /* GKFeedDataSource.h */,
+				E208A9A91B3FCF140050ACCA /* GKFeedDataSource.m */,
 			);
 			name = Models;
 			path = Source/Models;
@@ -202,6 +224,8 @@
 		E208A98B1B3DB8B60050ACCA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E208A9AB1B3FCFFD0050ACCA /* GKFeedCell.h */,
+				E208A9AC1B3FCFFD0050ACCA /* GKFeedCell.m */,
 				E208A9901B3DD0210050ACCA /* GKFeedFlowLayout.h */,
 				E208A9911B3DD0210050ACCA /* GKFeedFlowLayout.m */,
 			);
@@ -212,7 +236,9 @@
 		E208A98D1B3DB8D60050ACCA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E208A9AF1B3FD72A0050ACCA /* sample_data_source.json */,
+				E208A9AF1B3FD72A0050ACCA /* sample_data_source_page0.json */,
+				E26D37171B408459008878BB /* sample_data_source_page1.json */,
+				E26D37181B408459008878BB /* sample_data_source_page2.json */,
 				E208A98E1B3DB8D60050ACCA /* Images.xcassets */,
 			);
 			path = Resources;
@@ -232,6 +258,7 @@
 			children = (
 				E208A99B1B3F06990050ACCA /* GKAPIManager.h */,
 				E208A99C1B3F06990050ACCA /* GKAPIManager.m */,
+				E26D37101B4064E9008878BB /* APIConstants.h */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -241,10 +268,6 @@
 			children = (
 				E208A9A51B3FCE430050ACCA /* GKFeedCVC.h */,
 				E208A9A61B3FCE430050ACCA /* GKFeedCVC.m */,
-				E208A9A81B3FCF140050ACCA /* GKFeedDataSource.h */,
-				E208A9A91B3FCF140050ACCA /* GKFeedDataSource.m */,
-				E208A9AB1B3FCFFD0050ACCA /* GKFeedCell.h */,
-				E208A9AC1B3FCFFD0050ACCA /* GKFeedCell.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -252,6 +275,7 @@
 		E208A9B11B4038A30050ACCA /* External */ = {
 			isa = PBXGroup;
 			children = (
+				E26D37111B406CA6008878BB /* ProgressHUD */,
 				E208A9B21B4038A30050ACCA /* DYRateView */,
 			);
 			name = External;
@@ -265,6 +289,16 @@
 				E208A9B41B4038A30050ACCA /* DYRateView.m */,
 			);
 			path = DYRateView;
+			sourceTree = "<group>";
+		};
+		E26D37111B406CA6008878BB /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				E26D37121B406CA6008878BB /* SVProgressHUD.bundle */,
+				E26D37131B406CA6008878BB /* SVProgressHUD.h */,
+				E26D37141B406CA6008878BB /* SVProgressHUD.m */,
+			);
+			path = ProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,10 +381,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E26D37151B406CA6008878BB /* SVProgressHUD.bundle in Resources */,
 				E208A9681B3DB82D0050ACCA /* Main.storyboard in Resources */,
 				E208A98F1B3DB8D60050ACCA /* Images.xcassets in Resources */,
-				E208A9B01B3FD72A0050ACCA /* sample_data_source.json in Resources */,
+				E26D371A1B408459008878BB /* sample_data_source_page2.json in Resources */,
+				E208A9B01B3FD72A0050ACCA /* sample_data_source_page0.json in Resources */,
 				E208A96D1B3DB82D0050ACCA /* LaunchScreen.xib in Resources */,
+				E26D37191B408459008878BB /* sample_data_source_page1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,15 +405,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E26D37251B40906D008878BB /* NSString+Highlights.m in Sources */,
 				E208A9A71B3FCE430050ACCA /* GKFeedCVC.m in Sources */,
 				E208A98C1B3DB8B60050ACCA /* AppDelegate.m in Sources */,
 				E208A9981B3DE2D60050ACCA /* UIColor+AppTheme.m in Sources */,
 				E208A95C1B3DB82D0050ACCA /* main.m in Sources */,
 				E208A9A01B3F06B70050ACCA /* GKHTTPRequester.m in Sources */,
+				E26D37161B406CA6008878BB /* SVProgressHUD.m in Sources */,
 				E208A9A31B3F0CBF0050ACCA /* NSDictionary+Validation.m in Sources */,
 				E208A9AA1B3FCF140050ACCA /* GKFeedDataSource.m in Sources */,
 				E208A9B51B4038A30050ACCA /* DYRateView.m in Sources */,
 				E208A9AD1B3FCFFD0050ACCA /* GKFeedCell.m in Sources */,
+				E26D371D1B4087ED008878BB /* UIImageView+LazyLoading.m in Sources */,
 				E208A99D1B3F06990050ACCA /* GKAPIManager.m in Sources */,
 				E208A9921B3DD0210050ACCA /* GKFeedFlowLayout.m in Sources */,
 			);
@@ -456,7 +496,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -494,7 +534,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -509,6 +549,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = GKZiffyDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -577,6 +618,7 @@
 				E208A97E1B3DB82D0050ACCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E208A97F1B3DB82D0050ACCA /* Build configuration list for PBXNativeTarget "GKZiffyDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -585,6 +627,7 @@
 				E208A9811B3DB82D0050ACCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

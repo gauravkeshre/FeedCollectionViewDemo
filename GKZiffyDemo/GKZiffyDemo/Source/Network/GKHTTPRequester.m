@@ -39,44 +39,107 @@
 
 #pragma mark - NSURLSession Methods
 
--(void) invokeURL:(NSString *)serviceURL
-               withParams:(NSDictionary *)params
-                 callback:(GKSuccessCallback)callback{
-
-    NSURL *url = [NSURL URLWithString:serviceURL];
-    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-    NSMutableString *strParams = [[NSMutableString alloc]init];
-    for (NSString *key in [params allKeys]) {
-        [strParams appendFormat:@"%@=%@", key, params[key]];
-        [strParams appendString:@"&"];
+-(void)handleResponseWithCallback:(GKSuccessCallback)callback
+                             data:(NSData *)data response:(NSURLResponse *)response
+                            error: (NSError *)error{
+    if(error){
+        callback(NO,@{@"message":[error userInfo][@"NSLocalizedDescription"]});
+        return;
     }
-    [strParams deleteCharactersInRange:NSMakeRange([strParams length]-1, 1)];
-    [urlRequest setHTTPMethod:@"POST"];
     
-    [urlRequest setHTTPBody:[strParams dataUsingEncoding:NSUTF8StringEncoding]];
-    NSURLSessionDataTask *task = [[self session] dataTaskWithRequest:urlRequest
-                                                   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                       if(error){
-                                                           callback(NO,@{@"message":[error userInfo][@"NSLocalizedDescription"]});
-                                                           return;
-                                                       }
-                                                       
-                                                       NSMutableDictionary *responsDic = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error]];
-                                                    
-                                                       if (responsDic.isValid && [responsDic[kSTATUS] isValid]) {
-                                                           callback([responsDic[kSTATUS] boolValue], responsDic);
-
-                                                       }else{
-                                                           callback(NO, nil);
-                                                       }
-                                                       
-                                                   }];
-    [task resume];
+    NSMutableDictionary *responsDic = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error]];
+    
+    if (responsDic.isValid && [responsDic[kSTATUS] isValid]) {
+        callback([responsDic[kSTATUS] boolValue], responsDic);
+        
+    }else{
+        callback(NO, nil);
+    }
 }
+
+
+-(void) invokeURL:(NSString *)serviceURL
+       withParams:(NSDictionary *)params
+         callback:(GKSuccessCallback)callback{
+   NSURL *url = [NSURL URLWithString:serviceURL];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url
+                                                               cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                                           timeoutInterval:60.0];
+    [request setHTTPMethod:@"POST"];
+    
+    NSError *error;
+    
+    NSData *data = [NSJSONSerialization dataWithJSONObject:params
+                                                   options:kNilOptions
+                                                     error:&error];
+    [request setHTTPBody:data];
+    NSURLSessionDataTask *task1 = [[self session]dataTaskWithRequest:request
+                                                   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                       [self handleResponseWithCallback:callback
+                                                                                   data:data
+                                                                               response:response error:error];
+                                                   }];
+
+    [task1 resume];
+}
+
+//-(void) _invokeURL:(NSString *)serviceURL
+//               withParams:(NSDictionary *)params
+//                 callback:(GKSuccessCallback)callback{
+//
+//    NSURL *url = [NSURL URLWithString:serviceURL];
+//    
+//    
+//    
+//    
+//    
+//    
+//    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+//      [urlRequest setHTTPMethod:@"POST"];
+//    [urlRequest setHTTPBody:[strParams dataUsingEncoding:NSUTF8StringEncoding]];
+//    NSURLSessionDataTask *task = [[self session] dataTaskWithRequest:urlRequest
+//                                                   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//                                                       if(error){
+//                                                           callback(NO,@{@"message":[error userInfo][@"NSLocalizedDescription"]});
+//                                                           return;
+//                                                       }
+//                                                       
+//                                                       NSMutableDictionary *responsDic = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error]];
+//                                                    
+//                                                       if (responsDic.isValid && [responsDic[kSTATUS] isValid]) {
+//                                                           callback([responsDic[kSTATUS] boolValue], responsDic);
+//
+//                                                       }else{
+//                                                           callback(NO, nil);
+//                                                       }
+//                                                       
+//                                                   }];
+//    [task resume];
+//}
 
 -(void)cancelAllServices{
     [UIApplication sharedApplication].networkActivityIndicatorVisible =NO;
         [self.dataTask cancel];
         [[self session] finishTasksAndInvalidate];
 }
+
+#pragma mark - Session Delegate
+- (void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session{
+    NSLog(@"completed");
+}
+
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
+willPerformHTTPRedirection:(NSHTTPURLResponse *)response
+        newRequest:(NSURLRequest *)request
+ completionHandler:(void (^)(NSURLRequest *))completionHandler{
+    
+    
+}
+
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
+didCompleteWithError:(NSError *)error{
+    NSLog(@"%s", __FUNCTION__);
+}
+
 @end

@@ -10,12 +10,13 @@
 #import "GKHTTPRequester.h"
 @interface GKAPIManager : NSObject
 
--(void)findAllBusinessesWithQuery:(NSString*)q
++(void)findAllBusinessesWithQuery:(NSString*)q
                        fromOffset:(NSInteger )offset
                            cityID:(NSString *)city
                            vertical:(NSString *)v
                      withCallback:(GKSuccessCallback)success_callback
                         onFailure:(GKFailureCallback)failure_callback;
 
-+ (void) getlocalDataWithCallback:(GKSuccessCallback)success_callback;
++ (void) getlocalDataAtPage:(NSInteger)page withCallback:(GKSuccessCallback)success_callback;
++(NSString*)urlAtIndex:(NSInteger)index;
 @end
