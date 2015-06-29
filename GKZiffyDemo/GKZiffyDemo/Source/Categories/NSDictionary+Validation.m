@@ -11,7 +11,14 @@
 @implementation NSDictionary (Validation)
 
 -(BOOL) isValid{
-    return ((self == nil) || ([self isEqual:[NSNull null]]));
+    return !((self == nil) || ([self isEqual:[NSNull null]]));
 
+}
+-(id)escapedValueForKey:(NSString *)key{
+    if (![self[key] isKindOfClass:[NSString class]]) {
+        return self[key];
+    }
+    NSString *v = [self[key] stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    return v;
 }
 @end

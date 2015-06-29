@@ -55,7 +55,7 @@
 #define kVertical @"salons-spas"
 
 //TODO:-  Remove the code to get local data and include the call to methdo that gives data from webservice
--(void)fetchDataAtPage:(NSInteger)page{
+-(void)temp_fetchDataAtPage:(NSInteger)page{
     if (page >4) {
         return;
     }
@@ -70,7 +70,7 @@
 
 }
 
--(void)Actual_fetchDataAtPage:(NSInteger)page{
+-(void)fetchDataAtPage:(NSInteger)page{
     [self showHUD];
     [GKAPIManager findAllBusinessesWithQuery:kQueryString
                                   fromOffset:page

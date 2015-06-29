@@ -10,4 +10,5 @@
 
 @interface NSDictionary (Validation)
 -(BOOL) isValid;
+-(NSString *)escapedValueForKey:(NSString *)key;
 @end

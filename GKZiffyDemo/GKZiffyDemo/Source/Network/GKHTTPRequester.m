@@ -49,8 +49,8 @@
     
     NSMutableDictionary *responsDic = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error]];
     
-    if (responsDic.isValid && [responsDic[kSTATUS] isValid]) {
-        callback([responsDic[kSTATUS] boolValue], responsDic);
+    if (responsDic.isValid) {
+        callback(YES, responsDic);
         
     }else{
         callback(NO, nil);
@@ -59,6 +59,45 @@
 
 
 -(void) invokeURL:(NSString *)serviceURL
+       withParams:(NSDictionary *)params
+                       callback:(GKSuccessCallback)callback{
+       NSURL *url = [NSURL URLWithString:serviceURL];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url
+                                                               cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                                           timeoutInterval:60.0];
+    [request setHTTPMethod:@"POST"];
+    
+    NSError *error;
+    // Set the request's content type to application/x-www-form-urlencoded
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+
+//    NSData *data = [NSJSONSerialization dataWithJSONObject:params
+//                                                   options:kNilOptions
+//                                                     error:&error];
+//    [request setHTTPBody:data];
+    NSMutableString *strBody = [NSMutableString new];
+    
+    for (NSString *key in params) {
+        [strBody appendFormat:@"%@=%@&", key, [params escapedValueForKey:key]];
+    }
+    
+    
+    
+    NSData *nData = [NSData dataWithBytes:[strBody UTF8String] length:strlen([strBody UTF8String])];
+    
+    [request setHTTPBody:nData];
+
+    NSOperationQueue *queue = [NSOperationQueue new];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                                           [self handleResponseWithCallback:callback
+                                                                       data:data
+                                                                   response:response error:error];
+                                           
+                                       }];
+}
+
+-(void) __invokeURL:(NSString *)serviceURL
        withParams:(NSDictionary *)params
          callback:(GKSuccessCallback)callback{
    NSURL *url = [NSURL URLWithString:serviceURL];

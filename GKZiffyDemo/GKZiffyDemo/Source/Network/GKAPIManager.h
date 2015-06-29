@@ -18,5 +18,5 @@
                         onFailure:(GKFailureCallback)failure_callback;
 
 + (void) getlocalDataAtPage:(NSInteger)page withCallback:(GKSuccessCallback)success_callback;
-+(NSString*)urlAtIndex:(NSInteger)index;
+//+(NSString*)urlAtIndex:(NSInteger)index;
 @end

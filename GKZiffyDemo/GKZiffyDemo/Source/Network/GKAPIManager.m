@@ -52,7 +52,17 @@ dispatch_once(&onceToken, ^{
                      withCallback:(GKSuccessCallback)success_callback
                         onFailure:(GKFailureCallback)failure_callback{
 
+[self.requester invokeURL:API_URL(ACTION_SEARCH) withParams:API_SEARCH_PARAMS(city, v, q, @(page_no)) callback:^(BOOL success, id result) {
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (success && success_callback) {
+            success_callback(YES, result);
+        }else if (failure_callback){
+            failure_callback(@"Some error occured", result);
+        }
+    });
+   
+}];
     
 }
 
