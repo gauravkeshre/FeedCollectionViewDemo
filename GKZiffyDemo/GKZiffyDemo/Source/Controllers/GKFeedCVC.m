@@ -71,15 +71,16 @@
 }
 
 -(void)fetchDataAtPage:(NSInteger)page{
-    [self showHUD];
+    [SVProgressHUD showWithStatus:@"Getting more data..." maskType:SVProgressHUDMaskTypeClear];;
     [GKAPIManager findAllBusinessesWithQuery:kQueryString
                                   fromOffset:page
                                       cityID:kCityID vertical:kVertical withCallback:^(BOOL success, id result) {
-                                          [self hideHUD];
+                                          [SVProgressHUD dismiss];
                                           pageOffset++;
                                           [self.dataSource appendData:result[@"results"] reload:NO];
                                       } onFailure:^(NSString *error_code, NSString *message) {
-                                                                                    [self hideHUD];
+                                          [SVProgressHUD showErrorWithStatus:message];
+                                          
                                           NSLog(@"%@", message);
                                          // [SVProgressHUD showErrorWithStatus:message];
                                       }];

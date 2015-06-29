@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIColor (AppTheme)
-
++(UIColor *)appLightBlueColor;
 @end

@@ -29,6 +29,7 @@
 		E26D371A1B408459008878BB /* sample_data_source_page2.json in Resources */ = {isa = PBXBuildFile; fileRef = E26D37181B408459008878BB /* sample_data_source_page2.json */; };
 		E26D371D1B4087ED008878BB /* UIImageView+LazyLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = E26D371C1B4087ED008878BB /* UIImageView+LazyLoading.m */; };
 		E26D37251B40906D008878BB /* NSString+Highlights.m in Sources */ = {isa = PBXBuildFile; fileRef = E26D37241B40906D008878BB /* NSString+Highlights.m */; };
+		E2E8ACA81B414AFC000A9CB5 /* GKAppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E8ACA71B414AFC000A9CB5 /* GKAppearanceManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		E26D371C1B4087ED008878BB /* UIImageView+LazyLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+LazyLoading.m"; path = "GKZiffyDemo/Source/Network/UIImageView+LazyLoading.m"; sourceTree = SOURCE_ROOT; };
 		E26D37231B40906D008878BB /* NSString+Highlights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Highlights.h"; path = "GKZiffyDemo/Source/Network/NSString+Highlights.h"; sourceTree = SOURCE_ROOT; };
 		E26D37241B40906D008878BB /* NSString+Highlights.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Highlights.m"; path = "GKZiffyDemo/Source/Network/NSString+Highlights.m"; sourceTree = SOURCE_ROOT; };
+		E2E8ACA61B414AFC000A9CB5 /* GKAppearanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKAppearanceManager.h; sourceTree = "<group>"; };
+		E2E8ACA71B414AFC000A9CB5 /* GKAppearanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKAppearanceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +199,7 @@
 		E208A9871B3DB8B60050ACCA /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				E2E8ACA51B414AE9000A9CB5 /* Appearance */,
 				E208A9991B3DEB5E0050ACCA /* CoreNetworkingAPI */,
 			);
 			name = Helper;
@@ -299,6 +303,15 @@
 				E26D37141B406CA6008878BB /* SVProgressHUD.m */,
 			);
 			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
+		E2E8ACA51B414AE9000A9CB5 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				E2E8ACA61B414AFC000A9CB5 /* GKAppearanceManager.h */,
+				E2E8ACA71B414AFC000A9CB5 /* GKAppearanceManager.m */,
+			);
+			name = Appearance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,6 +426,7 @@
 				E208A9A01B3F06B70050ACCA /* GKHTTPRequester.m in Sources */,
 				E26D37161B406CA6008878BB /* SVProgressHUD.m in Sources */,
 				E208A9A31B3F0CBF0050ACCA /* NSDictionary+Validation.m in Sources */,
+				E2E8ACA81B414AFC000A9CB5 /* GKAppearanceManager.m in Sources */,
 				E208A9AA1B3FCF140050ACCA /* GKFeedDataSource.m in Sources */,
 				E208A9B51B4038A30050ACCA /* DYRateView.m in Sources */,
 				E208A9AD1B3FCFFD0050ACCA /* GKFeedCell.m in Sources */,
