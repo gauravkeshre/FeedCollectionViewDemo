@@ -10,4 +10,9 @@
 
 @interface UIColor (AppTheme)
 +(UIColor *)appLightBlueColor;
++(UIColor *)appBarColor;
++(UIColor *)appRed;
++(UIColor *)appLightGrey;
++(UIColor *)appDarkBlueColor;
+
 @end

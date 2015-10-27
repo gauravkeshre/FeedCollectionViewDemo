@@ -16,7 +16,6 @@
      * All APpearance proxy related stuffs here
      */
     
-    
     [SVProgressHUD setBackgroundColor:[UIColor blackColor]];
     [SVProgressHUD setForegroundColor:[UIColor appLightBlueColor]];
 

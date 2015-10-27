@@ -17,6 +17,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    NSDictionary *di = @{@"key1": @"val1", @"key2": @"val2", @"key3": @{@"a":@{@"name": @"gk"}, @"c":@"d"}};
+    
+    NSString *str = di[@"key1"];
+    
+    //NSString *str2 = [[di objectForKey:@"key2"] stringByAppendingString:@" Hello"];
+    
     [GKAppearanceManager applyAppearance];
     return YES;
 }
